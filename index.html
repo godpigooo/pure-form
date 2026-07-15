@@ -54,6 +54,16 @@
 .checkout-form .section-title{grid-column:1/-1;font-family:'Noto Serif TC',serif;font-size:19px;margin:10px 0 0}
 .checkout-submit{grid-column:1/-1;border:0;background:var(--olive);color:#fff;padding:15px;border-radius:999px;font-weight:700}
 .checkout-note{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.7}
+.consent-row{grid-column:1/-1;display:flex!important;grid-template-columns:auto 1fr!important;align-items:flex-start;gap:9px!important;font-size:12px!important;line-height:1.65;color:var(--muted)}
+.consent-row input{width:auto!important;margin-top:4px}
+.consent-row a{color:var(--olive2);font-weight:700}
+
+.store-search-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.store-search-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid var(--olive);border-radius:10px;background:#fff;color:var(--olive2);font-weight:700;text-decoration:none;white-space:nowrap}
+.store-search-btn:hover{background:#f3f0e8}
+.store-help{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:520px){.store-search-row{grid-template-columns:1fr}.store-search-btn{width:100%}}
+
 .hidden{display:none!important}
 .success-card{padding:28px;border:1px solid var(--line);border-radius:16px;background:#fff;text-align:center}
 .success-card h3{font-family:'Noto Serif TC',serif;font-size:28px;margin:0 0 12px}
@@ -212,16 +222,29 @@
       <label>手機<input name='phone' inputmode='tel' required></label>
       <label>Email<input name='email' type='email' required></label>
       <label>付款方式<select name='payment'><option value='貨到付款'>貨到付款</option></select></label>
-      <label class='wide' id='storeField'>7-11 店名／店號<input name='store' placeholder='例如：中壢中央店／123456'></label>
+      <div class='wide' id='storeField'>
+        <div class='store-search-row'>
+          <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off'></label>
+          <a class='store-search-btn' href='https://emap.pcsc.com.tw/' target='_blank' rel='noopener noreferrer'>查詢 7-ELEVEN 門市</a>
+        </div>
+        <div class='product-detail-grid' style='margin-top:10px'>
+          <label>6 碼門市店號<input name='storeCode' inputmode='numeric' pattern='[0-9]{6}' maxlength='6' placeholder='例如：123456' autocomplete='off'></label>
+          <label>門市地址<input name='storeAddress' placeholder='請貼上查詢結果中的門市地址' autocomplete='street-address'></label>
+        </div>
+        <div class='store-help'>請按「查詢 7-ELEVEN 門市」，查好後回到本頁填入門市名稱、6 碼店號與地址，避免選錯同名門市。</div>
+      </div>
       <label class='wide hidden' id='addressField'>宅配地址<input name='address' placeholder='縣市、區域、路名、門牌'></label>
       <label class='wide'>訂單備註<textarea name='note' placeholder='例如：平日下午收貨'></textarea></label>
-      <div class='checkout-note'>目前採貨到付款。配送範圍僅限台灣本島；7-11 門市資料會由客服人工確認。送出訂單即表示已閱讀購物須知、配送說明及退換貨政策。</div>
+      <input type='text' name='_gotcha' tabindex='-1' autocomplete='off' style='position:absolute;left:-9999px;opacity:0' aria-hidden='true'>
+      <label class='consent-row'><input type='checkbox' name='policyConsent' required><span>我已閱讀並同意 <a href='shopping-guide.html' target='_blank'>購物須知</a>、<a href='shipping.html' target='_blank'>配送說明</a>、<a href='returns.html' target='_blank'>退換貨政策</a> 與 <a href='privacy.html' target='_blank'>隱私權政策</a>。</span></label>
+      <div class='checkout-note'>目前採貨到付款，配送範圍僅限台灣本島。7-ELEVEN 門市資料會由客服人工確認；若門市資料不完整，將聯絡訂購人補充。</div>
       <button class='checkout-submit' id='checkoutSubmit' type='submit'>送出訂單 Place Order</button>
     </form>
   </div>
 </aside>
 
 <script>
+/* PURE FORM V33 verified complete order form */
 window.PURE_FORM_ORDER_ENDPOINT='https://formspree.io/f/maqrneoy';
 const products=[{"id":"mugwort","name":"艾草平衡修護洗髮精","en":"Mugwort Balancing Repair Shampoo","spec":"1100mL","price":109,"image":"assets/shampoo-mugwort.webp","scenario":"assets/scenario-mugwort.webp","scenarioCaption":"洗髮後呈現柔順、有光澤的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"草本清新","desc":"清新的艾草草本氣息，為日常洗髮增添乾淨、舒服的洗護感受。","features":["1100mL 家庭實用大容量","清新艾草草本香氣","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"sandalwood","name":"檀香平衡修護洗髮精","en":"Sandalwood Balancing Repair Shampoo","spec":"1100mL","price":109,"image":"assets/shampoo-sandalwood.webp","scenario":"assets/scenario-sandalwood.webp","scenarioCaption":"洗髮後呈現平整、柔亮的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"溫潤檀香","desc":"溫潤沉穩的檀香木質調，讓每日洗髮多一點安定、舒適的香氣。","features":["1100mL 家庭實用大容量","溫潤沉穩木質香調","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"diffuser","name":"北國雪松花露水擴香瓶","en":"Nordic Cedar Diffuser","spec":"500mL","price":99,"image":"assets/diffuser.webp","scenario":"assets/scenario-diffuser.webp","scenarioCaption":"適合放置於客廳、臥室或玄關，營造沉穩木質香氛。","tag":"木質香氛","desc":"以北國雪松為主調的空間香氣，適合放置於玄關、客廳或臥室，營造清新木質氛圍。","features":["500mL 大容量設計","清新沉穩雪松木質調","適合玄關、客廳與臥室"],"usage":"將擴香棒插入瓶中，待香氛液自然吸附並散發。可依空間大小與香氣濃淡需求調整擴香棒數量。","caution":"請勿飲用，並遠離火源、高溫與陽光直射處。避免接觸眼睛、皮膚及家具表面。請放置於孩童與寵物無法取得處，並保持瓶身直立。"},{"id":"wipes","name":"兔兔純水濕紙巾三包組","en":"Little Rabbit Pure Water Wet Wipes","spec":"80抽 × 3包","price":100,"image":"assets/wipes.webp","scenario":"assets/scenario-wipes.webp","scenarioCaption":"適合居家日常擦拭與外出清潔使用。","tag":"日常潔淨","desc":"三包組合的純水濕紙巾，適合居家日常擦拭與外出攜帶使用。","features":["每包 80 抽，共 3 包","居家與外出皆方便","抽取式包裝，日常使用便利"],"usage":"掀開封口後抽取使用，每次使用後請將封口確實貼回，以減少水分散失。","caution":"本品不溶於水，使用後請丟入垃圾桶，勿投入馬桶。請避免擦拭眼睛及傷口。若使用後出現持續不適，請停止使用。請置於陰涼處並避免陽光直射。"},{"id":"floor","name":"北國雪松速乾地板清潔液","en":"Nordic Cedar Quick Dry Floor Cleaner","spec":"1100mL","price":99,"image":"assets/floor.webp","scenario":"assets/scenario-floor.webp","scenarioCaption":"稀釋後搭配拖把使用，完成日常地板清潔。","tag":"速乾清潔","desc":"用於日常地板清潔，清潔後留下淡雅北國雪松香氣，讓居家整理更俐落。","features":["1100mL 家庭實用容量","適合日常地板清潔","淡雅北國雪松木質香氣"],"usage":"依地板髒污程度取適量加入清水中稀釋後拖拭。首次使用前，建議先於不明顯處小範圍測試。","caution":"請勿飲用，避免接觸眼睛與皮膚。不同地板材質的耐受性不同，請依材質說明使用，勿與其他清潔劑混合。請置於孩童與寵物無法取得處。"},{"id":"pods","name":"兔兔香氛洗衣凝珠","en":"Rabbit Laundry Perfume Pods","spec":"30顆","price":109,"image":"assets/pods.webp","scenario":"assets/scenario-pods.webp","scenarioCaption":"將凝珠直接放入洗衣槽，再放入衣物開始洗程。","tag":"衣物香氛","desc":"一顆一洗的定量設計，減少倒取步驟，讓日常洗衣更方便並留下柔和香氣。","features":["每盒 30 顆","單顆定量，使用方便","適合日常衣物清潔"],"usage":"將一顆凝珠直接放入洗衣槽內，再放入衣物並依洗衣機正常程序清洗。請勿放入洗劑盒中，實際用量可依衣物量與髒污程度調整。","caution":"請勿撕開、剪開或以濕手拿取凝珠。請勿食用，並務必放置於孩童與寵物無法取得處。如不慎接觸眼睛或誤食，請立即以大量清水沖洗並儘速就醫。"}];
 const map=Object.fromEntries(products.map(p=>[p.id,p]));
@@ -260,15 +283,18 @@ function getShippingMethod(){return document.querySelector('input[name="shipping
 function getTotals(method=getShippingMethod()){const subtotal=Object.entries(cart).reduce((s,[id,q])=>s+map[id].price*q,0);const shipping=subtotal>=1000?0:(method==='home'?100:60);return{subtotal,shipping,total:subtotal+shipping}}
 function renderCart(){const entries=Object.entries(cart);document.getElementById('count').textContent=entries.reduce((s,[,q])=>s+q,0);const list=document.getElementById('cartList');list.innerHTML=entries.length?entries.map(([id,q])=>{const p=map[id];return `<div class="cart-item"><div class="cart-item-main"><strong>${p.name}</strong><small>${p.spec}</small><div class="cart-controls"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">＋</button><button class="remove" onclick="removeFromCart('${id}')">刪除</button></div></div><div class="cart-item-price">NT$${p.price*q}</div></div>`}).join(''):'<p>購物車目前是空的。</p>';const t=getTotals();document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
 function openCheckout(){if(!Object.keys(cart).length){alert('購物車目前是空的');return}closeAll();showOverlay();document.getElementById('checkoutDrawer').classList.add('open');toggleShippingFields()}
-function toggleShippingFields(){const method=getShippingMethod();document.getElementById('storeField').classList.toggle('hidden',method!=='711');document.getElementById('addressField').classList.toggle('hidden',method!=='home');document.querySelector('[name="store"]').required=method==='711';document.querySelector('[name="address"]').required=method==='home';const t=getTotals(method);document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
+function toggleShippingFields(){const method=getShippingMethod();document.getElementById('storeField').classList.toggle('hidden',method!=='711');document.getElementById('addressField').classList.toggle('hidden',method!=='home');['storeName','storeCode','storeAddress'].forEach(name=>{document.querySelector(`[name="${name}"]`).required=method==='711'});document.querySelector('[name="address"]').required=method==='home';const t=getTotals(method);document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
 function makeOrderNo(){const d=new Date();const pad=n=>String(n).padStart(2,'0');return `PF${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
-function buildOrderSummary(order){const lines=[];lines.push('訂單編號：'+order.orderNo,'姓名：'+order.customer.name,'手機：'+order.customer.phone,'Email：'+order.customer.email,'配送：'+(order.shipping.method==='711'?'7-11 取貨':'宅配'),order.shipping.method==='711'?'門市：'+order.shipping.store:'地址：'+order.shipping.address,'付款：貨到付款','','商品：');order.items.forEach(x=>lines.push(`${x.name} × ${x.qty} = NT$${x.lineTotal}`));lines.push('','商品小計：NT$'+order.amount.subtotal,'運費：'+(order.amount.shipping===0?'免運':'NT$'+order.amount.shipping),'總計：NT$'+order.amount.total,'備註：'+(order.customer.note||'無'));return lines.join('\n')}
+function buildOrderSummary(order){const lines=[];lines.push('訂單編號：'+order.orderNo,'姓名：'+order.customer.name,'手機：'+order.customer.phone,'Email：'+order.customer.email,'配送：'+(order.shipping.method==='711'?'7-ELEVEN 取貨':'宅配到府'));if(order.shipping.method==='711'){lines.push('門市名稱：'+order.shipping.storeName,'門市店號：'+order.shipping.storeCode,'門市地址：'+order.shipping.storeAddress)}else{lines.push('宅配地址：'+order.shipping.address)}lines.push('付款：貨到付款','','商品：');order.items.forEach(x=>lines.push(`${x.name} × ${x.qty} = NT$${x.lineTotal}`));lines.push('','商品小計：NT$'+order.amount.subtotal,'運費：'+(order.amount.shipping===0?'免運':'NT$'+order.amount.shipping),'總計：NT$'+order.amount.total,'備註：'+(order.customer.note||'無'));return lines.join('\n')}
 function escapeHtml(value){return String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
 async function submitOrder(e){
   e.preventDefault();
   if(!Object.keys(cart).length){alert('購物車目前是空的');return}
   const form=e.target;
   if(!form.reportValidity()) return;
+  const rawPhone=String(new FormData(form).get('phone')||'').replace(/[^0-9]/g,'');
+  if(rawPhone.length<9||rawPhone.length>10){alert('請確認手機號碼是否正確。');form.querySelector('[name="phone"]').focus();return}
+  if(getShippingMethod()==='711'){const code=form.querySelector('[name="storeCode"]').value.trim();if(!/^\d{6}$/.test(code)){alert('7-ELEVEN 門市店號請填 6 碼數字。');form.querySelector('[name="storeCode"]').focus();return}}
   const submitBtn=document.getElementById('checkoutSubmit');
   const originalText=submitBtn.textContent;
   submitBtn.disabled=true;
@@ -280,7 +306,7 @@ async function submitOrder(e){
     orderNo:makeOrderNo(),
     createdAt:new Date().toISOString(),
     customer:{name:fd.get('name'),phone:fd.get('phone'),email:fd.get('email'),note:fd.get('note')},
-    shipping:{method,store:fd.get('store')||'',address:fd.get('address')||''},
+    shipping:{method,storeName:fd.get('storeName')||'',storeCode:fd.get('storeCode')||'',storeAddress:fd.get('storeAddress')||'',address:fd.get('address')||''},
     payment:'貨到付款',
     items:Object.entries(cart).map(([id,qty])=>({id,name:map[id].name,spec:map[id].spec,price:map[id].price,qty,lineTotal:map[id].price*qty})),
     amount
@@ -294,14 +320,17 @@ async function submitOrder(e){
   payload.append('手機',order.customer.phone);
   payload.append('email',order.customer.email);
   payload.append('配送方式',method==='711'?'7-11 取貨':'宅配到府');
-  payload.append('7-11門市',order.shipping.store||'不適用');
+  payload.append('7-ELEVEN門市名稱',order.shipping.storeName||'不適用');
+  payload.append('7-ELEVEN門市店號',order.shipping.storeCode||'不適用');
+  payload.append('7-ELEVEN門市地址',order.shipping.storeAddress||'不適用');
   payload.append('宅配地址',order.shipping.address||'不適用');
   payload.append('付款方式','貨到付款');
   payload.append('商品明細',order.items.map(x=>`${x.name}｜${x.spec}｜${x.qty}件｜NT$${x.lineTotal}`).join('\n'));
-  payload.append('商品小計',`NT$${amount.subtotal}`);
-  payload.append('運費',amount.shipping===0?'免運':`NT$${amount.shipping}`);
-  payload.append('訂單總計',`NT$${amount.total}`);
+  payload.append('商品小計（新台幣）',`${amount.subtotal} 元`);
+  payload.append('運費（新台幣）',amount.shipping===0?'免運':`${amount.shipping} 元`);
+  payload.append('訂單總計（新台幣）',`${amount.total} 元`);
   payload.append('備註',order.customer.note||'無');
+  payload.append('下單頁面',location.href);
   payload.append('完整訂單',summary);
   try{
     const response=await fetch(window.PURE_FORM_ORDER_ENDPOINT,{method:'POST',body:payload,headers:{'Accept':'application/json'}});
@@ -312,7 +341,8 @@ async function submitOrder(e){
     }
     localStorage.setItem('pf_last_order',JSON.stringify(order));
     window.lastOrderSummary=summary;
-    document.getElementById('checkoutBody').innerHTML=`<div class="success-card"><h3>訂購完成</h3><p>訂單已成功送出，我們將盡快確認訂單與出貨資訊。<br>請保留訂單編號，以便後續查詢。</p><div class="order-no">${escapeHtml(order.orderNo)}</div><div class="order-preview">${escapeHtml(summary)}</div><p>客服電話：03-4793689<br>客服信箱：ez.easy@msa.hinet.net</p><button class="checkout-btn" onclick="copyOrderSummary()">複製訂單內容</button></div>`;
+    window.lastOrderNo=order.orderNo;
+    document.getElementById('checkoutBody').innerHTML=`<div class="success-card"><h3>訂購完成</h3><p>訂單已成功送出，我們將盡快確認訂單與出貨資訊。<br>請保留訂單編號，以便後續查詢。</p><div class="order-no">${escapeHtml(order.orderNo)}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0"><button class="checkout-btn" type="button" onclick="copyOrderNo()">複製訂單編號</button><button class="checkout-btn" type="button" onclick="copyOrderSummary()">複製完整訂單</button></div><div class="order-preview">${escapeHtml(summary)}</div><p>客服電話：03-4793689<br>客服信箱：ez.easy@msa.hinet.net</p></div>`;
     cart={};saveCart();renderCart();
   }catch(err){
     alert((err&&err.message)||'訂單送出失敗，購物車內容已保留，請稍後再試。');
@@ -320,6 +350,9 @@ async function submitOrder(e){
     submitBtn.textContent=originalText;
   }
 }
-function copyOrderSummary(){navigator.clipboard?.writeText(window.lastOrderSummary||'').then(()=>alert('已複製訂單內容')).catch(()=>alert('請長按訂單內容複製'))}
+function copyText(value,successMessage){if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(value).then(()=>alert(successMessage)).catch(()=>fallbackCopy(value,successMessage))}return fallbackCopy(value,successMessage)}
+function fallbackCopy(value,successMessage){const area=document.createElement('textarea');area.value=value;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();try{document.execCommand('copy');alert(successMessage)}catch(_){alert('請長按文字手動複製')}area.remove()}
+function copyOrderNo(){copyText(window.lastOrderNo||'','已複製訂單編號')}
+function copyOrderSummary(){copyText(window.lastOrderSummary||'','已複製完整訂單')}
 renderCart();
 </script></body></html>
