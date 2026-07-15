@@ -58,11 +58,6 @@
 .consent-row input{width:auto!important;margin-top:4px}
 .consent-row a{color:var(--olive2);font-weight:700}
 
-.store-search-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
-.store-search-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid var(--olive);border-radius:10px;background:#fff;color:var(--olive2);font-weight:700;text-decoration:none;white-space:nowrap}
-.store-search-btn:hover{background:#f3f0e8}
-.store-help{font-size:12px;color:var(--muted);line-height:1.6}
-@media(max-width:520px){.store-search-row{grid-template-columns:1fr}.store-search-btn{width:100%}}
 
 .hidden{display:none!important}
 .success-card{padding:28px;border:1px solid var(--line);border-radius:16px;background:#fff;text-align:center}
@@ -222,16 +217,9 @@
       <label>手機<input name='phone' inputmode='tel' required></label>
       <label>Email<input name='email' type='email' required></label>
       <label>付款方式<select name='payment'><option value='貨到付款'>貨到付款</option></select></label>
-      <div class='wide' id='storeField'>
-        <div class='store-search-row'>
-          <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off'></label>
-          <a class='store-search-btn' href='https://emap.pcsc.com.tw/' target='_blank' rel='noopener noreferrer'>查詢 7-ELEVEN 門市</a>
-        </div>
-        <div class='product-detail-grid' style='margin-top:10px'>
-          <label>6 碼門市店號<input name='storeCode' inputmode='numeric' pattern='[0-9]{6}' maxlength='6' placeholder='例如：123456' autocomplete='off'></label>
-          <label>門市地址<input name='storeAddress' placeholder='請貼上查詢結果中的門市地址' autocomplete='street-address'></label>
-        </div>
-        <div class='store-help'>請按「查詢 7-ELEVEN 門市」，查好後回到本頁填入門市名稱、6 碼店號與地址，避免選錯同名門市。</div>
+      <div class='wide product-detail-grid' id='storeField'>
+        <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off'></label>
+        <label>6 碼門市店號<input name='storeCode' inputmode='numeric' pattern='[0-9]{6}' maxlength='6' placeholder='例如：123456' autocomplete='off'></label>
       </div>
       <label class='wide hidden' id='addressField'>宅配地址<input name='address' placeholder='縣市、區域、路名、門牌'></label>
       <label class='wide'>訂單備註<textarea name='note' placeholder='例如：平日下午收貨'></textarea></label>
@@ -283,9 +271,9 @@ function getShippingMethod(){return document.querySelector('input[name="shipping
 function getTotals(method=getShippingMethod()){const subtotal=Object.entries(cart).reduce((s,[id,q])=>s+map[id].price*q,0);const shipping=subtotal>=1000?0:(method==='home'?100:60);return{subtotal,shipping,total:subtotal+shipping}}
 function renderCart(){const entries=Object.entries(cart);document.getElementById('count').textContent=entries.reduce((s,[,q])=>s+q,0);const list=document.getElementById('cartList');list.innerHTML=entries.length?entries.map(([id,q])=>{const p=map[id];return `<div class="cart-item"><div class="cart-item-main"><strong>${p.name}</strong><small>${p.spec}</small><div class="cart-controls"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">＋</button><button class="remove" onclick="removeFromCart('${id}')">刪除</button></div></div><div class="cart-item-price">NT$${p.price*q}</div></div>`}).join(''):'<p>購物車目前是空的。</p>';const t=getTotals();document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
 function openCheckout(){if(!Object.keys(cart).length){alert('購物車目前是空的');return}closeAll();showOverlay();document.getElementById('checkoutDrawer').classList.add('open');toggleShippingFields()}
-function toggleShippingFields(){const method=getShippingMethod();document.getElementById('storeField').classList.toggle('hidden',method!=='711');document.getElementById('addressField').classList.toggle('hidden',method!=='home');['storeName','storeCode','storeAddress'].forEach(name=>{document.querySelector(`[name="${name}"]`).required=method==='711'});document.querySelector('[name="address"]').required=method==='home';const t=getTotals(method);document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
+function toggleShippingFields(){const method=getShippingMethod();document.getElementById('storeField').classList.toggle('hidden',method!=='711');document.getElementById('addressField').classList.toggle('hidden',method!=='home');['storeName','storeCode'].forEach(name=>{document.querySelector(`[name="${name}"]`).required=method==='711'});document.querySelector('[name="address"]').required=method==='home';const t=getTotals(method);document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
 function makeOrderNo(){const d=new Date();const pad=n=>String(n).padStart(2,'0');return `PF${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
-function buildOrderSummary(order){const lines=[];lines.push('訂單編號：'+order.orderNo,'姓名：'+order.customer.name,'手機：'+order.customer.phone,'Email：'+order.customer.email,'配送：'+(order.shipping.method==='711'?'7-ELEVEN 取貨':'宅配到府'));if(order.shipping.method==='711'){lines.push('門市名稱：'+order.shipping.storeName,'門市店號：'+order.shipping.storeCode,'門市地址：'+order.shipping.storeAddress)}else{lines.push('宅配地址：'+order.shipping.address)}lines.push('付款：貨到付款','','商品：');order.items.forEach(x=>lines.push(`${x.name} × ${x.qty} = NT$${x.lineTotal}`));lines.push('','商品小計：NT$'+order.amount.subtotal,'運費：'+(order.amount.shipping===0?'免運':'NT$'+order.amount.shipping),'總計：NT$'+order.amount.total,'備註：'+(order.customer.note||'無'));return lines.join('\n')}
+function buildOrderSummary(order){const lines=[];lines.push('訂單編號：'+order.orderNo,'姓名：'+order.customer.name,'手機：'+order.customer.phone,'Email：'+order.customer.email,'配送：'+(order.shipping.method==='711'?'7-ELEVEN 取貨':'宅配到府'));if(order.shipping.method==='711'){lines.push('門市名稱：'+order.shipping.storeName,'門市店號：'+order.shipping.storeCode)}else{lines.push('宅配地址：'+order.shipping.address)}lines.push('付款：貨到付款','','商品：');order.items.forEach(x=>lines.push(`${x.name} × ${x.qty} = NT$${x.lineTotal}`));lines.push('','商品小計：NT$'+order.amount.subtotal,'運費：'+(order.amount.shipping===0?'免運':'NT$'+order.amount.shipping),'總計：NT$'+order.amount.total,'備註：'+(order.customer.note||'無'));return lines.join('\n')}
 function escapeHtml(value){return String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
 async function submitOrder(e){
   e.preventDefault();
@@ -306,7 +294,7 @@ async function submitOrder(e){
     orderNo:makeOrderNo(),
     createdAt:new Date().toISOString(),
     customer:{name:fd.get('name'),phone:fd.get('phone'),email:fd.get('email'),note:fd.get('note')},
-    shipping:{method,storeName:fd.get('storeName')||'',storeCode:fd.get('storeCode')||'',storeAddress:fd.get('storeAddress')||'',address:fd.get('address')||''},
+    shipping:{method,storeName:fd.get('storeName')||'',storeCode:fd.get('storeCode')||'',address:fd.get('address')||''},
     payment:'貨到付款',
     items:Object.entries(cart).map(([id,qty])=>({id,name:map[id].name,spec:map[id].spec,price:map[id].price,qty,lineTotal:map[id].price*qty})),
     amount
@@ -322,7 +310,6 @@ async function submitOrder(e){
   payload.append('配送方式',method==='711'?'7-11 取貨':'宅配到府');
   payload.append('7-ELEVEN門市名稱',order.shipping.storeName||'不適用');
   payload.append('7-ELEVEN門市店號',order.shipping.storeCode||'不適用');
-  payload.append('7-ELEVEN門市地址',order.shipping.storeAddress||'不適用');
   payload.append('宅配地址',order.shipping.address||'不適用');
   payload.append('付款方式','貨到付款');
   payload.append('商品明細',order.items.map(x=>`${x.name}｜${x.spec}｜${x.qty}件｜NT$${x.lineTotal}`).join('\n'));
