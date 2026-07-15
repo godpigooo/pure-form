@@ -84,7 +84,11 @@
 .modal-img img{min-height:220px}
 @media(max-width:800px){.checkout-form{grid-template-columns:1fr}.checkout-form .wide,.checkout-form .section-title,.checkout-submit,.checkout-note{grid-column:1}.shipping-choice{grid-template-columns:1fr}.checkout-drawer{width:100vw}}
 
-</style>  <link rel='preload' as='image' href='assets/hero-premium.webp'>
+.hero-box{min-height:auto;background:transparent;border-radius:24px;overflow:hidden;box-shadow:0 16px 36px rgba(42,34,24,.10)}
+.hero-feature-link{display:block;line-height:0}
+.hero-feature-img{width:100%;height:auto;display:block}
+@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}}
+</style>  <link rel='preload' as='image' href='assets/hero-option1.png'>
 </head><body>
 <header class='header'>
   <button class='menu-btn' onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
@@ -93,11 +97,7 @@
   <nav class='desktop-nav' id='nav'><a href='#shop'>所有商品</a><a href='oem.html'>代工服務</a><a href='about.html'>關於我們</a><a href='faq.html'>常見問題</a><a href='contact.html'>聯絡我們</a></nav>
 </header>
 <main id='top'>
-<section class='hero'><div class='hero-box'>
-  <img class='hero-bg' src='assets/hero-premium.webp' alt='高級質感居家氛圍' fetchpriority='high' decoding='async' width='1280' height='721'>
-  <div class='hero-shade'></div>
-  <div class='hero-copy'><div class='eyebrow'>ETRIA</div><h1>自然植萃 × 日常淨護</h1><p>從洗護、清潔到香氛，<br>把每天都會用到的日常用品，<br>做得更純粹、更舒服，也更容易選擇。</p><a href='#shop'>探索更多 Explore →</a></div>
-</div></section>
+<section class='hero'><div class='hero-box'><a class='hero-feature-link' href='#shop' aria-label='立即選購'><img class='hero-feature-img' src='assets/hero-option1.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='864' height='1536'></a></div></section>
 <section class='feature-strip'><div><strong>植萃日常配方</strong><span>兼顧清潔與使用感受</span></div><div><strong>多元生活清潔</strong><span>洗護、衣物、居家與香氛</span></div><div><strong>實用大容量</strong><span>適合家庭日常使用</span></div><div><strong>台灣研發製造</strong><span>完整製造與品管流程</span></div></section>
 <section class='shop' id='shop'><div class='shop-head'><div><h2>熱銷推薦</h2><p>把清潔、香氣與生活感，放進每天都會使用的小事裡</p></div><a href='#shop'>查看全部 →</a></div><div class='grid'>
     <article class='product-card' onclick="openProduct('mugwort')">
