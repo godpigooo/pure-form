@@ -85,9 +85,17 @@
 @media(max-width:800px){.checkout-form{grid-template-columns:1fr}.checkout-form .wide,.checkout-form .section-title,.checkout-submit,.checkout-note{grid-column:1}.shipping-choice{grid-template-columns:1fr}.checkout-drawer{width:100vw}}
 
 .hero-box{min-height:auto;background:transparent;border-radius:24px;overflow:hidden;box-shadow:0 16px 36px rgba(42,34,24,.10)}
-.hero-feature-link{display:block;line-height:0}
 .hero-feature-img{width:100%;height:auto;display:block}
-@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}}
+.hero-hotspot{position:absolute;left:6.2%;width:32%;height:5.4%;border-radius:999px;z-index:3}
+.hero-shop-hotspot{top:54.3%;background:transparent}
+.hero-oem-button{top:62.0%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,249,.94);border:1px solid rgba(117,128,77,.75);color:#59633d;font-size:clamp(12px,1.55vw,21px);font-weight:600;letter-spacing:.08em;line-height:1;box-shadow:0 7px 18px rgba(44,38,28,.10)}
+.hero-oem-button:hover{background:#fff;transform:translateY(-1px)}
+.store-map-actions{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.store-map-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--olive);background:#f8f6f0;color:var(--olive2);border-radius:999px;padding:11px 16px;font-size:13px;font-weight:700;line-height:1.2}
+.store-map-btn:hover{background:#fff}
+.store-map-help{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 10px}
+
+@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}.hero-hotspot{left:6.2%;width:34%}.hero-shop-hotspot{top:54.1%}.hero-oem-button{top:61.8%;font-size:11px}}
 </style>  <link rel='preload' as='image' href='assets/hero-option1.png'>
 </head><body>
 <header class='header'>
@@ -97,7 +105,7 @@
   <nav class='desktop-nav' id='nav'><a href='#shop'>所有商品</a><a href='oem.html'>代工服務</a><a href='about.html'>關於我們</a><a href='faq.html'>常見問題</a><a href='contact.html'>聯絡我們</a></nav>
 </header>
 <main id='top'>
-<section class='hero'><div class='hero-box'><a class='hero-feature-link' href='#shop' aria-label='立即選購'><img class='hero-feature-img' src='assets/hero-option1.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='864' height='1536'></a></div></section>
+<section class='hero'><div class='hero-box'><img class='hero-feature-img' src='assets/hero-option1.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='864' height='1536'><a class='hero-hotspot hero-shop-hotspot' href='#shop' aria-label='立即選購'></a><a class='hero-hotspot hero-oem-button' href='oem.html'>代工服務 OEM／ODM →</a></div></section>
 <section class='feature-strip'><div><strong>植萃日常配方</strong><span>兼顧清潔與使用感受</span></div><div><strong>多元生活清潔</strong><span>洗護、衣物、居家與香氛</span></div><div><strong>實用大容量</strong><span>適合家庭日常使用</span></div><div><strong>台灣研發製造</strong><span>完整製造與品管流程</span></div></section>
 <section class='shop' id='shop'><div class='shop-head'><div><h2>熱銷推薦</h2><p>把清潔、香氣與生活感，放進每天都會使用的小事裡</p></div><a href='#shop'>查看全部 →</a></div><div class='grid'>
     <article class='product-card' onclick="openProduct('mugwort')">
@@ -231,13 +239,15 @@
       <label>Email<input name='email' type='email' required></label>
       <label>付款方式<select name='payment'><option value='貨到付款'>貨到付款</option></select></label>
       <div class='wide' id='storeField'>
+        <div class='store-map-actions'><a class='store-map-btn' href='https://emap.pcsc.com.tw/ecmap/default.aspx?eshopid=899&amp;eshopparid=899&amp;eshoppwd=a00013&amp;showtype=1&amp;sid=1&amp;storecategory=3&amp;tempvar=&amp;url=%2Femap.pcsc.com.tw' target='_blank' rel='noopener'>查看可收貨的 7-ELEVEN 門市</a></div>
+        <p class='store-map-help'>請先在官方地圖確認門市可提供網路購物取貨服務，再回來填寫門市名稱。</p>
         <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off'></label>
       </div>
       <label class='wide hidden' id='addressField'>宅配地址<input name='address' placeholder='縣市、區域、路名、門牌'></label>
       <label class='wide'>訂單備註<textarea name='note' placeholder='例如：平日下午收貨'></textarea></label>
       <input type='text' name='_gotcha' tabindex='-1' autocomplete='off' style='position:absolute;left:-9999px;opacity:0' aria-hidden='true'>
       <label class='consent-row'><input type='checkbox' name='policyConsent' required><span>我已閱讀並同意 <a href='shopping-guide.html' target='_blank'>購物須知</a>、<a href='shipping.html' target='_blank'>配送說明</a>、<a href='returns.html' target='_blank'>退換貨政策</a> 與 <a href='privacy.html' target='_blank'>隱私權政策</a>。</span></label>
-      <div class='checkout-note'>目前採貨到付款，配送範圍僅限台灣本島。7-ELEVEN 門市將由客服依您填寫的門市名稱人工確認；如有同名門市，客服會再與您確認。</div>
+      <div class='checkout-note'>目前採貨到付款，配送範圍僅限台灣本島。請先使用官方地圖確認門市可提供網路購物取貨服務，再填寫門市名稱；如有同名門市，客服會再與您確認。</div>
       <button class='checkout-submit' id='checkoutSubmit' type='submit'>送出訂單 Place Order</button>
     </form>
   </div>
