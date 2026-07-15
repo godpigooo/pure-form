@@ -1,4 +1,11 @@
-<!doctype html><html lang='zh-Hant'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'><title>淨序製研 PURE FORM</title><style>
+<!doctype html><html lang='zh-Hant'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'><title>淨序製研 PURE FORM</title>
+<meta name='description' content='淨序製研 PURE FORM，提供台灣製造的日常洗護、居家清潔、香氛生活選品，以及 OEM／ODM 代工服務。'>
+<meta name='theme-color' content='#f4f0e9'>
+<meta property='og:type' content='website'>
+<meta property='og:title' content='淨序製研 PURE FORM'>
+<meta property='og:description' content='把清潔、香氣與生活感，放進每天都會使用的小事裡。'>
+<meta name='twitter:card' content='summary_large_image'>
+<style>
 :root{--bg:#f4f0e9;--paper:#fffdf9;--ink:#171713;--muted:#746e63;--line:#ddd5c8;--olive:#75804d;--olive2:#5f6940}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Noto Sans TC',sans-serif}a{color:inherit;text-decoration:none}img{display:block;width:100%}button{font:inherit;cursor:pointer}.no-scroll{overflow:hidden}
 .header{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 26px;background:rgba(255,253,249,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;backdrop-filter:blur(12px)}
@@ -85,17 +92,49 @@
 @media(max-width:800px){.checkout-form{grid-template-columns:1fr}.checkout-form .wide,.checkout-form .section-title,.checkout-submit,.checkout-note{grid-column:1}.shipping-choice{grid-template-columns:1fr}.checkout-drawer{width:100vw}}
 
 .hero-box{min-height:auto;background:transparent;border-radius:24px;overflow:hidden;box-shadow:0 16px 36px rgba(42,34,24,.10)}
-.hero-feature-img{width:100%;height:auto;display:block}
+.hero-feature-img{width:100%;height:auto;display:block;margin-top:-7.4%}
 .hero-hotspot{position:absolute;left:6.2%;width:32%;height:5.4%;border-radius:999px;z-index:3}
-.hero-shop-hotspot{top:54.3%;background:transparent}
-.hero-oem-button{top:62.0%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,249,.94);border:1px solid rgba(117,128,77,.75);color:#59633d;font-size:clamp(12px,1.55vw,21px);font-weight:600;letter-spacing:.08em;line-height:1;box-shadow:0 7px 18px rgba(44,38,28,.10)}
+.hero-shop-hotspot{top:50.7%;background:transparent}
+.hero-oem-button{top:59.0%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,249,.94);border:1px solid rgba(117,128,77,.75);color:#59633d;font-size:clamp(12px,1.55vw,21px);font-weight:600;letter-spacing:.08em;line-height:1;box-shadow:0 7px 18px rgba(44,38,28,.10)}
 .hero-oem-button:hover{background:#fff;transform:translateY(-1px)}
 .store-map-actions{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
 .store-map-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--olive);background:#f8f6f0;color:var(--olive2);border-radius:999px;padding:11px 16px;font-size:13px;font-weight:700;line-height:1.2}
 .store-map-btn:hover{background:#fff}
 .store-map-help{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 10px}
 
-@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}.hero-hotspot{left:6.2%;width:34%}.hero-shop-hotspot{top:54.1%}.hero-oem-button{top:61.8%;font-size:11px}}
+@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}.hero-hotspot{left:6.2%;width:34%}.hero-shop-hotspot{top:50.5%}.hero-oem-button{top:58.8%;font-size:11px}}
+
+.category-filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+.category-filter{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 17px;font-size:13px;transition:.2s}
+.category-filter.active,.category-filter:hover{background:var(--olive);border-color:var(--olive);color:#fff}
+.product-card.category-hidden{display:none}
+.payment-explain{grid-column:1/-1;background:#f4efe7;border:1px solid var(--line);border-radius:14px;padding:14px 16px;line-height:1.75;color:#5e584f;font-size:13px}
+.payment-explain strong{color:var(--ink)}
+@media(max-width:800px){.category-filters{gap:8px;margin-bottom:20px}.category-filter{padding:9px 13px;font-size:12px}}
+
+.stock-badge{display:inline-flex;align-self:flex-start;margin:0 0 10px;padding:5px 10px;border-radius:999px;background:#edf3e8;color:#50613c;font-size:11px;font-weight:700}
+.stock-badge.sold-out{background:#eee9e5;color:#8a8178}
+.product-card.is-sold-out{opacity:.7}
+.product-card.is-sold-out .solid{background:#aaa49a;border-color:#aaa49a;cursor:not-allowed}
+.shipping-progress{margin:12px 0 4px;padding:13px 14px;background:#f3eee6;border-radius:13px}
+.shipping-progress-text{font-size:13px;color:#5e584f;margin-bottom:8px}
+.shipping-progress-track{height:8px;background:#ddd5c8;border-radius:999px;overflow:hidden}
+.shipping-progress-bar{height:100%;width:0;background:var(--olive);border-radius:999px;transition:width .25s}
+.cart-recommend{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.cart-recommend strong{display:block;margin-bottom:5px}
+.cart-recommend p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.6}
+.cart-recommend button{width:100%;border:1px solid var(--olive);background:#f7f5ef;color:var(--olive2);padding:10px;border-radius:999px;font-weight:700}
+.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 18px 0}
+.trust-item{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center}
+.trust-item strong{display:block;font-size:14px;margin-bottom:4px}
+.trust-item span{font-size:11px;color:var(--muted)}
+@media(max-width:800px){.trust-row{grid-template-columns:1fr 1fr;margin:16px 10px 0}.trust-item{padding:12px 8px}}
+
+
+button:disabled{cursor:not-allowed;opacity:.55}
+.checkout-btn:disabled{background:#aaa49a}
+.stock-badge{display:inline-flex;align-self:flex-start;margin:0 0 10px;padding:5px 10px;border-radius:999px;background:#edf3e8;color:#50613c;font-size:11px;font-weight:700}
+
 </style>  <link rel='preload' as='image' href='assets/hero-option1.png'>
 </head><body>
 <header class='header'>
@@ -107,11 +146,18 @@
 <main id='top'>
 <section class='hero'><div class='hero-box'><img class='hero-feature-img' src='assets/hero-option1.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='864' height='1536'><a class='hero-hotspot hero-shop-hotspot' href='#shop' aria-label='立即選購'></a><a class='hero-hotspot hero-oem-button' href='oem.html'>代工服務 OEM／ODM →</a></div></section>
 <section class='feature-strip'><div><strong>植萃日常配方</strong><span>兼顧清潔與使用感受</span></div><div><strong>多元生活清潔</strong><span>洗護、衣物、居家與香氛</span></div><div><strong>實用大容量</strong><span>適合家庭日常使用</span></div><div><strong>台灣研發製造</strong><span>完整製造與品管流程</span></div></section>
-<section class='shop' id='shop'><div class='shop-head'><div><h2>熱銷推薦</h2><p>把清潔、香氣與生活感，放進每天都會使用的小事裡</p></div><a href='#shop'>查看全部 →</a></div><div class='grid'>
-    <article class='product-card' onclick="openProduct('mugwort')">
+<section class='trust-row' aria-label='品牌信任資訊'>
+  <div class='trust-item'><strong>台灣製造</strong><span>桃園自有製造端</span></div>
+  <div class='trust-item'><strong>ISO 9001</strong><span>品質管理系統</span></div>
+  <div class='trust-item'><strong>ISO 22716</strong><span>化妝品優良製造</span></div>
+  <div class='trust-item'><strong>無塵室製程</strong><span>純水與自動充填</span></div>
+</section>
+
+<section class='shop' id='shop'><div class='shop-head'><div><h2>熱銷推薦</h2><p>把清潔、香氣與生活感，放進每天都會使用的小事裡</p></div><a href='#shop' onclick="filterProducts('all')">查看全部 →</a></div><div class='category-filters' aria-label='商品分類'><button class='category-filter active' type='button' data-filter='all' onclick="filterProducts('all',this)">全部</button><button class='category-filter' type='button' data-filter='wash' onclick="filterProducts('wash',this)">洗護</button><button class='category-filter' type='button' data-filter='home' onclick="filterProducts('home',this)">居家清潔</button><button class='category-filter' type='button' data-filter='laundry' onclick="filterProducts('laundry',this)">香氛洗衣</button><button class='category-filter' type='button' data-filter='life' onclick="filterProducts('life',this)">生活選品</button></div><div class='grid'>
+    <article class='product-card' data-category='wash' onclick="openProduct('mugwort')">
       <div class='product-image'><img src='assets/shampoo-mugwort.webp' alt='艾草平衡修護洗髮精' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>草本清新</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>草本清新</span>
         <h3>艾草平衡修護洗髮精</h3>
         <p class='en'>Mugwort Balancing Repair Shampoo</p>
         <div class='meta'><span>1100mL</span><strong>NT$109</strong></div>
@@ -121,10 +167,10 @@
         </div>
       </div>
     </article>
-    <article class='product-card' onclick="openProduct('sandalwood')">
+    <article class='product-card' data-category='wash' onclick="openProduct('sandalwood')">
       <div class='product-image'><img src='assets/shampoo-sandalwood.webp' alt='檀香平衡修護洗髮精' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>溫潤檀香</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>溫潤檀香</span>
         <h3>檀香平衡修護洗髮精</h3>
         <p class='en'>Sandalwood Balancing Repair Shampoo</p>
         <div class='meta'><span>1100mL</span><strong>NT$109</strong></div>
@@ -134,10 +180,10 @@
         </div>
       </div>
     </article>
-    <article class='product-card' onclick="openProduct('diffuser')">
+    <article class='product-card' data-category='life' onclick="openProduct('diffuser')">
       <div class='product-image'><img src='assets/diffuser.webp' alt='北國雪松花露水擴香瓶' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>木質香氛</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>木質香氛</span>
         <h3>北國雪松花露水擴香瓶</h3>
         <p class='en'>Nordic Cedar Diffuser</p>
         <div class='meta'><span>500mL</span><strong>NT$99</strong></div>
@@ -147,23 +193,10 @@
         </div>
       </div>
     </article>
-    <article class='product-card' onclick="openProduct('wipes')">
-      <div class='product-image'><img src='assets/wipes.webp' alt='兔兔純水濕紙巾三包組' loading='lazy' decoding='async'></div>
-      <div class='product-copy'>
-        <span class='tag'>日常潔淨</span>
-        <h3>兔兔純水濕紙巾三包組</h3>
-        <p class='en'>Little Rabbit Pure Water Wet Wipes</p>
-        <div class='meta'><span>80抽 × 3包</span><strong>NT$100</strong></div>
-        <div class='actions'>
-          <button class='ghost' onclick="event.stopPropagation();openProduct('wipes')">查看內容</button>
-          <button class='solid' onclick="event.stopPropagation();addToCart('wipes')">加入購物車</button>
-        </div>
-      </div>
-    </article>
-    <article class='product-card' onclick="openProduct('floor')">
+    <article class='product-card' data-category='home' onclick="openProduct('floor')">
       <div class='product-image'><img src='assets/floor.webp' alt='北國雪松速乾地板清潔液' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>速乾清潔</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>速乾清潔</span>
         <h3>北國雪松速乾地板清潔液</h3>
         <p class='en'>Nordic Cedar Quick Dry Floor Cleaner</p>
         <div class='meta'><span>1100mL</span><strong>NT$99</strong></div>
@@ -173,10 +206,10 @@
         </div>
       </div>
     </article>
-    <article class='product-card' onclick="openProduct('pods')">
+    <article class='product-card' data-category='laundry' onclick="openProduct('pods')">
       <div class='product-image'><img src='assets/pods.webp' alt='兔兔香氛洗衣凝珠' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>衣物香氛</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>衣物香氛</span>
         <h3>兔兔香氛洗衣凝珠</h3>
         <p class='en'>Rabbit Laundry Perfume Pods</p>
         <div class='meta'><span>30顆</span><strong>NT$109</strong></div>
@@ -186,10 +219,10 @@
         </div>
       </div>
     </article>
-    <article class='product-card' onclick="openProduct('golden-tiger')">
+    <article class='product-card' data-category='life' onclick="openProduct('golden-tiger')">
       <div class='product-image'><img src='assets/golden-tiger.webp' alt='金虎爺招財金尊' loading='lazy' decoding='async'></div>
       <div class='product-copy'>
-        <span class='tag'>招財擺飾</span>
+        <span class='stock-badge'>現貨供應</span><span class='tag'>招財擺飾</span>
         <h3>金虎爺招財金尊</h3>
         <p class='en'>Golden Tiger Wealth Figurine</p>
         <div class='meta'><span>約 9 × 10.5 × 7 cm</span><strong>NT$239</strong></div>
@@ -205,7 +238,7 @@
 <footer class='footer'><div><strong>淨序製研 PURE FORM</strong><p>泓利昇有限公司｜桃園</p></div><div><p>03-4793689<br>ez.easy@msa.hinet.net</p><p style='display:flex;flex-wrap:wrap;gap:12px'><a href='shopping-guide.html'>購物須知</a><a href='shipping.html'>配送說明</a><a href='returns.html'>退換貨政策</a><a href='privacy.html'>隱私權政策</a><a href='faq.html'>FAQ</a></p></div></footer>
 <div class='overlay' id='overlay' onclick='closeAll()'></div>
 <aside class='drawer' id='productDrawer'>
-  <div class='drawer-head'><h2>商品內容</h2><button onclick='closeAll()'>×</button></div>
+  <div class='drawer-head'><h2>商品內容</h2><button type='button' aria-label='關閉視窗' onclick='closeAll()'>×</button></div>
   <div class='drawer-body'>
     <div class='modal-img'><img id='modalImg' alt='商品圖片'></div>
     <h3 id='modalName'></h3>
@@ -222,10 +255,10 @@
     <div class='modal-actions' style='margin-top:20px'><button class='ghost' onclick='closeAll()'>繼續瀏覽</button><button class='solid' id='modalAdd'>加入購物車</button></div>
   </div>
 </aside>
-<aside class='drawer' id='cartDrawer'><div class='drawer-head'><h2>購物車</h2><button onclick='closeAll()'>×</button></div><div class='cart-list' id='cartList'></div><div class='cart-summary'><p><span>商品小計</span><span id='subtotal'>NT$0</span></p><p><span>運費</span><span id='shipping'>NT$60</span></p><p class='total'><strong>總計</strong><strong id='total'>NT$60</strong></p><button class='checkout-btn' onclick='openCheckout()'>前往結帳 Checkout</button></div></aside>
+<aside class='drawer' id='cartDrawer'><div class='drawer-head'><h2>購物車</h2><button type='button' aria-label='關閉視窗' onclick='closeAll()'>×</button></div><div class='cart-list' id='cartList'></div><div class='cart-summary'><p><span>商品小計</span><span id='subtotal'>NT$0</span></p><p><span>運費</span><span id='shipping'>NT$0</span></p><p class='total'><strong>總計</strong><strong id='total'>NT$0</strong></p><div class='shipping-progress' id='shippingProgress'><div class='shipping-progress-text' id='shippingProgressText'>購物車尚未加入商品</div><div class='shipping-progress-track'><div class='shipping-progress-bar' id='shippingProgressBar'></div></div></div><div id='cartRecommend'></div><button class='checkout-btn' id='cartCheckoutBtn' type='button' onclick='openCheckout()' disabled>前往結帳 Checkout</button></div></aside>
 
 <aside class='drawer checkout-drawer' id='checkoutDrawer'>
-  <div class='drawer-head'><h2>結帳 Checkout</h2><button onclick='closeAll()'>×</button></div>
+  <div class='drawer-head'><h2>結帳 Checkout</h2><button type='button' aria-label='關閉視窗' onclick='closeAll()'>×</button></div>
   <div class='drawer-body' id='checkoutBody'>
     <form class='checkout-form' id='checkoutForm' action='https://formspree.io/f/maqrneoy' method='POST' onsubmit='submitOrder(event)'>
       <div class='section-title'>配送方式</div>
@@ -234,31 +267,32 @@
         <label><input type='radio' name='shippingMethod' value='home' onchange='toggleShippingFields()'>宅配 NT$100</label>
       </div>
       <div class='section-title'>收件資料</div>
-      <label>姓名<input name='name' required></label>
-      <label>手機<input name='phone' inputmode='tel' required></label>
-      <label>Email<input name='email' type='email' required></label>
-      <label>付款方式<select name='payment'><option value='貨到付款'>貨到付款</option></select></label>
+      <label>姓名<input name='name' autocomplete='name' maxlength='40' required></label>
+      <label>手機<input name='phone' inputmode='tel' autocomplete='tel' maxlength='20' required></label>
+      <label>Email<input name='email' type='email' autocomplete='email' maxlength='120' required></label>
+      <label>付款方式<select name='payment'><option value='貨到付款'>貨到付款</option></select></label><div class='payment-explain'><strong>付款與配送流程</strong><br>7-ELEVEN：門市取貨付款。官網送出訂單後，我們會依您填寫的門市建立寄件資料；若該門市暫停收貨，將再與您聯絡更換門市。<br>宅配：包裹送達時直接向宅配人員付款。</div>
       <div class='wide' id='storeField'>
         <div class='store-map-actions'><a class='store-map-btn' href='https://emap.pcsc.com.tw/ecmap/default.aspx?eshopid=899&amp;eshopparid=899&amp;eshoppwd=a00013&amp;showtype=1&amp;sid=1&amp;storecategory=3&amp;tempvar=&amp;url=%2Femap.pcsc.com.tw' target='_blank' rel='noopener'>查看可收貨的 7-ELEVEN 門市</a></div>
         <p class='store-map-help'>請先在官方地圖確認門市可提供網路購物取貨服務，再回來填寫門市名稱。</p>
-        <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off'></label>
+        <label>7-ELEVEN 門市名稱<input name='storeName' placeholder='例如：開立門市' autocomplete='off' maxlength='40'></label>
       </div>
-      <label class='wide hidden' id='addressField'>宅配地址<input name='address' placeholder='縣市、區域、路名、門牌'></label>
-      <label class='wide'>訂單備註<textarea name='note' placeholder='例如：平日下午收貨'></textarea></label>
+      <label class='wide hidden' id='addressField'>宅配地址<input name='address' placeholder='縣市、區域、路名、門牌' autocomplete='street-address' maxlength='150'></label>
+      <label class='wide'>訂單備註<textarea name='note' placeholder='例如：平日下午收貨' maxlength='300'></textarea></label>
       <input type='text' name='_gotcha' tabindex='-1' autocomplete='off' style='position:absolute;left:-9999px;opacity:0' aria-hidden='true'>
       <label class='consent-row'><input type='checkbox' name='policyConsent' required><span>我已閱讀並同意 <a href='shopping-guide.html' target='_blank'>購物須知</a>、<a href='shipping.html' target='_blank'>配送說明</a>、<a href='returns.html' target='_blank'>退換貨政策</a> 與 <a href='privacy.html' target='_blank'>隱私權政策</a>。</span></label>
-      <div class='checkout-note'>目前採貨到付款，配送範圍僅限台灣本島。請先使用官方地圖確認門市可提供網路購物取貨服務，再填寫門市名稱；如有同名門市，客服會再與您確認。</div>
+      <div class='checkout-note'>目前採貨到付款，配送範圍僅限台灣本島。7-ELEVEN 訂單送出後，由我們另行建立門市寄件資料；宅配則於包裹送達時付款。請先使用官方地圖確認門市可提供網路購物取貨服務，再填寫門市名稱。</div>
       <button class='checkout-submit' id='checkoutSubmit' type='submit'>送出訂單 Place Order</button>
     </form>
   </div>
 </aside>
 
 <script>
-/* PURE FORM V37: golden tiger product + simplified 7-ELEVEN store field */
+/* PURE FORM V44: hero crop, empty-cart fix, payment clarity, product filters */
 window.PURE_FORM_ORDER_ENDPOINT='https://formspree.io/f/maqrneoy';
-const products=[{"id":"mugwort","name":"艾草平衡修護洗髮精","en":"Mugwort Balancing Repair Shampoo","spec":"1100mL","price":109,"image":"assets/shampoo-mugwort.webp","scenario":"assets/scenario-mugwort.webp","scenarioCaption":"洗髮後呈現柔順、有光澤的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"草本清新","desc":"清新的艾草草本氣息，為日常洗髮增添乾淨、舒服的洗護感受。","features":["1100mL 家庭實用大容量","清新艾草草本香氣","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"sandalwood","name":"檀香平衡修護洗髮精","en":"Sandalwood Balancing Repair Shampoo","spec":"1100mL","price":109,"image":"assets/shampoo-sandalwood.webp","scenario":"assets/scenario-sandalwood.webp","scenarioCaption":"洗髮後呈現平整、柔亮的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"溫潤檀香","desc":"溫潤沉穩的檀香木質調，讓每日洗髮多一點安定、舒適的香氣。","features":["1100mL 家庭實用大容量","溫潤沉穩木質香調","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"diffuser","name":"北國雪松花露水擴香瓶","en":"Nordic Cedar Diffuser","spec":"500mL","price":99,"image":"assets/diffuser.webp","scenario":"assets/scenario-diffuser.webp","scenarioCaption":"適合放置於客廳、臥室或玄關，營造沉穩木質香氛。","tag":"木質香氛","desc":"以北國雪松為主調的空間香氣，適合放置於玄關、客廳或臥室，營造清新木質氛圍。","features":["500mL 大容量設計","清新沉穩雪松木質調","適合玄關、客廳與臥室"],"usage":"將擴香棒插入瓶中，待香氛液自然吸附並散發。可依空間大小與香氣濃淡需求調整擴香棒數量。","caution":"請勿飲用，並遠離火源、高溫與陽光直射處。避免接觸眼睛、皮膚及家具表面。請放置於孩童與寵物無法取得處，並保持瓶身直立。"},{"id":"wipes","name":"兔兔純水濕紙巾三包組","en":"Little Rabbit Pure Water Wet Wipes","spec":"80抽 × 3包","price":100,"image":"assets/wipes.webp","scenario":"assets/scenario-wipes.webp","scenarioCaption":"適合居家日常擦拭與外出清潔使用。","tag":"日常潔淨","desc":"三包組合的純水濕紙巾，適合居家日常擦拭與外出攜帶使用。","features":["每包 80 抽，共 3 包","居家與外出皆方便","抽取式包裝，日常使用便利"],"usage":"掀開封口後抽取使用，每次使用後請將封口確實貼回，以減少水分散失。","caution":"本品不溶於水，使用後請丟入垃圾桶，勿投入馬桶。請避免擦拭眼睛及傷口。若使用後出現持續不適，請停止使用。請置於陰涼處並避免陽光直射。"},{"id":"floor","name":"北國雪松速乾地板清潔液","en":"Nordic Cedar Quick Dry Floor Cleaner","spec":"1100mL","price":99,"image":"assets/floor.webp","scenario":"assets/scenario-floor.webp","scenarioCaption":"稀釋後搭配拖把使用，完成日常地板清潔。","tag":"速乾清潔","desc":"用於日常地板清潔，清潔後留下淡雅北國雪松香氣，讓居家整理更俐落。","features":["1100mL 家庭實用容量","適合日常地板清潔","淡雅北國雪松木質香氣"],"usage":"依地板髒污程度取適量加入清水中稀釋後拖拭。首次使用前，建議先於不明顯處小範圍測試。","caution":"請勿飲用，避免接觸眼睛與皮膚。不同地板材質的耐受性不同，請依材質說明使用，勿與其他清潔劑混合。請置於孩童與寵物無法取得處。"},{"id":"pods","name":"兔兔香氛洗衣凝珠","en":"Rabbit Laundry Perfume Pods","spec":"30顆","price":109,"image":"assets/pods.webp","scenario":"assets/scenario-pods.webp","scenarioCaption":"將凝珠直接放入洗衣槽，再放入衣物開始洗程。","tag":"衣物香氛","desc":"一顆一洗的定量設計，減少倒取步驟，讓日常洗衣更方便並留下柔和香氣。","features":["每盒 30 顆","單顆定量，使用方便","適合日常衣物清潔"],"usage":"將一顆凝珠直接放入洗衣槽內，再放入衣物並依洗衣機正常程序清洗。請勿放入洗劑盒中，實際用量可依衣物量與髒污程度調整。","caution":"請勿撕開、剪開或以濕手拿取凝珠。請勿食用，並務必放置於孩童與寵物無法取得處。如不慎接觸眼睛或誤食，請立即以大量清水沖洗並儘速就醫。"},{"id":"golden-tiger","name":"金虎爺招財金尊","en":"Golden Tiger Wealth Figurine","spec":"約 9 × 10.5 × 7 cm","price":239,"image":"assets/golden-tiger.webp","scenario":"assets/golden-tiger-detail.webp","scenarioCaption":"適合擺放於居家、店面櫃台或辦公桌面，作為具有吉祥寓意的空間擺飾。","tag":"招財擺飾","desc":"金虎爺象徵招財納福與守護平安。造型威風中帶有可愛感，尺寸小巧，適合居家、店面與辦公空間擺設，也適合作為開運送禮。","features":["臺灣興義堂南桃園金虎爺會","PVC 材質，造型鮮明吸睛","適合居家、店面、辦公桌與送禮"],"usage":"可放置於居家玄關、客廳、辦公桌面或店面櫃台。請置於平穩乾燥處，並依空間風格自由搭配擺設。","caution":"本品為裝飾擺件，非兒童玩具。請避免摔落、碰撞、高溫與長時間陽光直射；表面如有灰塵，請以柔軟乾布輕拭。"}];
+const products=[{"id":"mugwort","name":"艾草平衡修護洗髮精","en":"Mugwort Balancing Repair Shampoo","spec":"1100mL","price":109,"stock":true,"image":"assets/shampoo-mugwort.webp","scenario":"assets/scenario-mugwort.webp","scenarioCaption":"洗髮後呈現柔順、有光澤的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"草本清新","desc":"清新的艾草草本氣息，為日常洗髮增添乾淨、舒服的洗護感受。","features":["1100mL 家庭實用大容量","清新艾草草本香氣","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"sandalwood","name":"檀香平衡修護洗髮精","en":"Sandalwood Balancing Repair Shampoo","spec":"1100mL","price":109,"stock":true,"image":"assets/shampoo-sandalwood.webp","scenario":"assets/scenario-sandalwood.webp","scenarioCaption":"洗髮後呈現平整、柔亮的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"溫潤檀香","desc":"溫潤沉穩的檀香木質調，讓每日洗髮多一點安定、舒適的香氣。","features":["1100mL 家庭實用大容量","溫潤沉穩木質香調","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"diffuser","name":"北國雪松花露水擴香瓶","en":"Nordic Cedar Diffuser","spec":"500mL","price":99,"stock":true,"image":"assets/diffuser.webp","scenario":"assets/scenario-diffuser.webp","scenarioCaption":"適合放置於客廳、臥室或玄關，營造沉穩木質香氛。","tag":"木質香氛","desc":"以北國雪松為主調的空間香氣，適合放置於玄關、客廳或臥室，營造清新木質氛圍。","features":["500mL 大容量設計","清新沉穩雪松木質調","適合玄關、客廳與臥室"],"usage":"將擴香棒插入瓶中，待香氛液自然吸附並散發。可依空間大小與香氣濃淡需求調整擴香棒數量。","caution":"請勿飲用，並遠離火源、高溫與陽光直射處。避免接觸眼睛、皮膚及家具表面。請放置於孩童與寵物無法取得處，並保持瓶身直立。"},{"id":"floor","name":"北國雪松速乾地板清潔液","en":"Nordic Cedar Quick Dry Floor Cleaner","spec":"1100mL","price":99,"stock":true,"image":"assets/floor.webp","scenario":"assets/scenario-floor.webp","scenarioCaption":"稀釋後搭配拖把使用，完成日常地板清潔。","tag":"速乾清潔","desc":"用於日常地板清潔，清潔後留下淡雅北國雪松香氣，讓居家整理更俐落。","features":["1100mL 家庭實用容量","適合日常地板清潔","淡雅北國雪松木質香氣"],"usage":"依地板髒污程度取適量加入清水中稀釋後拖拭。首次使用前，建議先於不明顯處小範圍測試。","caution":"請勿飲用，避免接觸眼睛與皮膚。不同地板材質的耐受性不同，請依材質說明使用，勿與其他清潔劑混合。請置於孩童與寵物無法取得處。"},{"id":"pods","name":"兔兔香氛洗衣凝珠","en":"Rabbit Laundry Perfume Pods","spec":"30顆","price":109,"stock":true,"image":"assets/pods.webp","scenario":"assets/scenario-pods.webp","scenarioCaption":"將凝珠直接放入洗衣槽，再放入衣物開始洗程。","tag":"衣物香氛","desc":"一顆一洗的定量設計，減少倒取步驟，讓日常洗衣更方便並留下柔和香氣。","features":["每盒 30 顆","單顆定量，使用方便","適合日常衣物清潔"],"usage":"將一顆凝珠直接放入洗衣槽內，再放入衣物並依洗衣機正常程序清洗。請勿放入洗劑盒中，實際用量可依衣物量與髒污程度調整。","caution":"請勿撕開、剪開或以濕手拿取凝珠。請勿食用，並務必放置於孩童與寵物無法取得處。如不慎接觸眼睛或誤食，請立即以大量清水沖洗並儘速就醫。"},{"id":"golden-tiger","name":"金虎爺招財金尊","en":"Golden Tiger Wealth Figurine","spec":"約 9 × 10.5 × 7 cm","price":239,"stock":true,"image":"assets/golden-tiger.webp","scenario":"assets/golden-tiger-detail.webp","scenarioCaption":"適合擺放於居家、店面櫃台或辦公桌面，作為具有吉祥寓意的空間擺飾。","tag":"招財擺飾","desc":"金虎爺象徵招財納福與守護平安。造型威風中帶有可愛感，尺寸小巧，適合居家、店面與辦公空間擺設，也適合作為開運送禮。","features":["臺灣興義堂南桃園金虎爺會","PVC 材質，造型鮮明吸睛","適合居家、店面、辦公桌與送禮"],"usage":"可放置於居家玄關、客廳、辦公桌面或店面櫃台。請置於平穩乾燥處，並依空間風格自由搭配擺設。","caution":"本品為裝飾擺件，非兒童玩具。請避免摔落、碰撞、高溫與長時間陽光直射；表面如有灰塵，請以柔軟乾布輕拭。"}];
 const map=Object.fromEntries(products.map(p=>[p.id,p]));
 let cart={};try{cart=JSON.parse(localStorage.getItem('pf_cart22')||'{}')||{}}catch(_){cart={};localStorage.removeItem('pf_cart22')}
+Object.keys(cart).forEach(id=>{if(!map[id]||map[id].stock===false)delete cart[id]});
 function saveCart(){localStorage.setItem('pf_cart22',JSON.stringify(cart))}
 
 function showOverlay(){document.getElementById('overlay').classList.add('open');document.body.classList.add('no-scroll')}
@@ -283,15 +317,55 @@ function openProduct(id){
   document.getElementById('modalFeatures').innerHTML=p.features.map(x=>`<li>${x}</li>`).join('');
   document.getElementById('modalUsage').textContent=p.usage;
   document.getElementById('modalCaution').textContent=p.caution;
-  document.getElementById('modalAdd').onclick=()=>addToCart(id);
+  const modalAdd=document.getElementById('modalAdd');
+  modalAdd.disabled=p.stock===false;
+  modalAdd.textContent=p.stock===false?'暫時售完':'加入購物車';
+  modalAdd.onclick=()=>addToCart(id);
 }
-function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();renderCart();closeAll();openCart()}
+function filterProducts(category,button){
+  document.querySelectorAll('.product-card[data-category]').forEach(card=>card.classList.toggle('category-hidden',category!=='all'&&card.dataset.category!==category));
+  document.querySelectorAll('.category-filter').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===category));
+  if(button) button.classList.add('active');
+}
+function addToCart(id){
+  const p=map[id];
+  if(!p||p.stock===false){alert('此商品目前暫時售完。');return}
+  cart[id]=(cart[id]||0)+1;saveCart();renderCart();closeAll();openCart()
+}
 function changeQty(id,delta){const next=(cart[id]||0)+delta;if(next<=0)delete cart[id];else cart[id]=next;saveCart();renderCart()}
 function removeFromCart(id){delete cart[id];saveCart();renderCart()}
 function openCart(){showOverlay();document.getElementById('cartDrawer').classList.add('open')}
 function getShippingMethod(){return document.querySelector('input[name="shippingMethod"]:checked')?.value||'711'}
-function getTotals(method=getShippingMethod()){const subtotal=Object.entries(cart).reduce((s,[id,q])=>s+map[id].price*q,0);const shipping=subtotal>=1000?0:(method==='home'?100:60);return{subtotal,shipping,total:subtotal+shipping}}
-function renderCart(){const entries=Object.entries(cart);document.getElementById('count').textContent=entries.reduce((s,[,q])=>s+q,0);const list=document.getElementById('cartList');list.innerHTML=entries.length?entries.map(([id,q])=>{const p=map[id];return `<div class="cart-item"><div class="cart-item-main"><strong>${p.name}</strong><small>${p.spec}</small><div class="cart-controls"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">＋</button><button class="remove" onclick="removeFromCart('${id}')">刪除</button></div></div><div class="cart-item-price">NT$${p.price*q}</div></div>`}).join(''):'<p>購物車目前是空的。</p>';const t=getTotals();document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
+function getTotals(method=getShippingMethod()){const subtotal=Object.entries(cart).reduce((s,[id,q])=>s+(map[id]?map[id].price*q:0),0);const shipping=subtotal===0?0:(subtotal>=1000?0:(method==='home'?100:60));return{subtotal,shipping,total:subtotal+shipping}}
+function getRecommendation(entries){
+  const ids=new Set(entries.map(([id])=>id));
+  if(ids.has('mugwort')&&!ids.has('sandalwood'))return map['sandalwood'];
+  if(ids.has('sandalwood')&&!ids.has('mugwort'))return map['mugwort'];
+  if(ids.has('floor')&&!ids.has('diffuser'))return map['diffuser'];
+  if(ids.has('diffuser')&&!ids.has('floor'))return map['floor'];
+  if(ids.size&&!ids.has('pods'))return map['pods'];
+  return null;
+}
+function renderCart(){
+  const entries=Object.entries(cart).filter(([id])=>map[id]&&map[id].stock!==false);
+  document.getElementById('count').textContent=entries.reduce((s,[,q])=>s+q,0);
+  const cartCheckoutBtn=document.getElementById('cartCheckoutBtn');if(cartCheckoutBtn)cartCheckoutBtn.disabled=entries.length===0;
+  const list=document.getElementById('cartList');
+  list.innerHTML=entries.length?entries.map(([id,q])=>{
+    const p=map[id];
+    return `<div class="cart-item"><div class="cart-item-main"><strong>${p.name}</strong><small>${p.spec}</small><div class="cart-controls"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">＋</button><button class="remove" onclick="removeFromCart('${id}')">刪除</button></div></div><div class="cart-item-price">NT$${p.price*q}</div></div>`
+  }).join(''):'<p>購物車目前是空的。</p>';
+  const t=getTotals();
+  document.getElementById('subtotal').textContent='NT$'+t.subtotal;
+  document.getElementById('shipping').textContent=t.subtotal===0?'NT$0':(t.shipping?'NT$'+t.shipping:'免運');
+  document.getElementById('total').textContent='NT$'+t.total;
+  const remaining=Math.max(0,1000-t.subtotal);
+  const progress=Math.min(100,(t.subtotal/1000)*100);
+  document.getElementById('shippingProgressBar').style.width=progress+'%';
+  document.getElementById('shippingProgressText').textContent=t.subtotal===0?'購物車尚未加入商品':remaining===0?'已享單筆滿 NT$1,000 免運':'再買 NT$'+remaining+' 即享免運';
+  const rec=getRecommendation(entries);
+  document.getElementById('cartRecommend').innerHTML=rec&&rec.stock!==false?`<div class="cart-recommend"><strong>順手一起帶</strong><p>${rec.name}｜${rec.spec}｜NT$${rec.price}</p><button type="button" onclick="addToCart('${rec.id}')">加入這項商品</button></div>`:'';
+}
 function openCheckout(){if(!Object.keys(cart).length){alert('購物車目前是空的');return}closeAll();showOverlay();document.getElementById('checkoutDrawer').classList.add('open');toggleShippingFields()}
 function toggleShippingFields(){const method=getShippingMethod();document.getElementById('storeField').classList.toggle('hidden',method!=='711');document.getElementById('addressField').classList.toggle('hidden',method!=='home');document.querySelector('[name="storeName"]').required=method==='711';document.querySelector('[name="address"]').required=method==='home';const t=getTotals(method);document.getElementById('subtotal').textContent='NT$'+t.subtotal;document.getElementById('shipping').textContent=t.shipping?'NT$'+t.shipping:'免運';document.getElementById('total').textContent='NT$'+t.total}
 function makeOrderNo(){const d=new Date();const pad=n=>String(n).padStart(2,'0');return `PF${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${Math.random().toString(36).slice(2,7).toUpperCase()}`}
@@ -302,8 +376,17 @@ async function submitOrder(e){
   if(!Object.keys(cart).length){alert('購物車目前是空的');return}
   const form=e.target;
   if(!form.reportValidity()) return;
-  const rawPhone=String(new FormData(form).get('phone')||'').replace(/[^0-9]/g,'');
+  const initialData=new FormData(form);
+  if(String(initialData.get('_gotcha')||'').trim()){return}
+  const name=String(initialData.get('name')||'').trim();
+  const rawPhone=String(initialData.get('phone')||'').replace(/[^0-9]/g,'');
+  const chosenMethod=String(initialData.get('shippingMethod')||'711');
+  const storeName=String(initialData.get('storeName')||'').trim();
+  const address=String(initialData.get('address')||'').trim();
+  if(name.length<2){alert('請填寫完整收件姓名。');form.querySelector('[name="name"]').focus();return}
   if(rawPhone.length<9||rawPhone.length>10){alert('請確認手機號碼是否正確。');form.querySelector('[name="phone"]').focus();return}
+  if(chosenMethod==='711'&&storeName.length<2){alert('請填寫完整的 7-ELEVEN 門市名稱。');form.querySelector('[name="storeName"]').focus();return}
+  if(chosenMethod==='home'&&address.length<8){alert('請填寫完整宅配地址。');form.querySelector('[name="address"]').focus();return}
   const submitBtn=document.getElementById('checkoutSubmit');
   const originalText=submitBtn.textContent;
   submitBtn.disabled=true;
@@ -314,8 +397,8 @@ async function submitOrder(e){
   const order={
     orderNo:makeOrderNo(),
     createdAt:new Date().toISOString(),
-    customer:{name:fd.get('name'),phone:fd.get('phone'),email:fd.get('email'),note:fd.get('note')},
-    shipping:{method,storeName:fd.get('storeName')||'',address:fd.get('address')||''},
+    customer:{name:String(fd.get('name')||'').trim(),phone:String(fd.get('phone')||'').trim(),email:String(fd.get('email')||'').trim(),note:String(fd.get('note')||'').trim()},
+    shipping:{method,storeName:String(fd.get('storeName')||'').trim(),address:String(fd.get('address')||'').trim()},
     payment:'貨到付款',
     items:Object.entries(cart).map(([id,qty])=>({id,name:map[id].name,spec:map[id].spec,price:map[id].price,qty,lineTotal:map[id].price*qty})),
     amount
@@ -337,6 +420,8 @@ async function submitOrder(e){
   payload.append('運費（新台幣）',amount.shipping===0?'免運':`${amount.shipping} 元`);
   payload.append('訂單總計（新台幣）',`${amount.total} 元`);
   payload.append('備註',order.customer.note||'無');
+  payload.append('已同意購物與隱私政策','是');
+  payload.append('網站版本','V44');
   payload.append('下單頁面',location.href);
   payload.append('完整訂單',summary);
   try{
@@ -349,7 +434,7 @@ async function submitOrder(e){
     localStorage.setItem('pf_last_order',JSON.stringify(order));
     window.lastOrderSummary=summary;
     window.lastOrderNo=order.orderNo;
-    document.getElementById('checkoutBody').innerHTML=`<div class="success-card"><h3>訂購完成</h3><p>訂單已成功送出，我們將盡快確認訂單與出貨資訊。<br>請保留訂單編號，以便後續查詢。</p><div class="order-no">${escapeHtml(order.orderNo)}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0"><button class="checkout-btn" type="button" onclick="copyOrderNo()">複製訂單編號</button><button class="checkout-btn" type="button" onclick="copyOrderSummary()">複製完整訂單</button></div><div class="order-preview">${escapeHtml(summary)}</div><p>客服電話：03-4793689<br>客服信箱：ez.easy@msa.hinet.net</p></div>`;
+    document.getElementById('checkoutBody').innerHTML=`<div class="success-card"><h3>訂購完成</h3><p>訂單已成功送出，我們將於 1 個工作日內確認訂單、門市與出貨資訊。<br>請保留訂單編號，以便後續查詢。</p><div class="order-no">${escapeHtml(order.orderNo)}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0"><button class="checkout-btn" type="button" onclick="copyOrderNo()">複製訂單編號</button><button class="checkout-btn" type="button" onclick="copyOrderSummary()">複製完整訂單</button></div><div class="order-preview">${escapeHtml(summary)}</div><p>客服電話：03-4793689<br>客服信箱：ez.easy@msa.hinet.net</p></div>`;
     cart={};saveCart();renderCart();
   }catch(err){
     alert((err&&err.message)||'訂單送出失敗，購物車內容已保留，請稍後再試。');
@@ -361,5 +446,6 @@ function copyText(value,successMessage){if(navigator.clipboard&&window.isSecureC
 function fallbackCopy(value,successMessage){const area=document.createElement('textarea');area.value=value;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();try{document.execCommand('copy');alert(successMessage)}catch(_){alert('請長按文字手動複製')}area.remove()}
 function copyOrderNo(){copyText(window.lastOrderNo||'','已複製訂單編號')}
 function copyOrderSummary(){copyText(window.lastOrderSummary||'','已複製完整訂單')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
 renderCart();
 </script></body></html>
