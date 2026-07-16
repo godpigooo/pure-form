@@ -8,8 +8,8 @@
 <style>
 :root{--bg:#f4f0e9;--paper:#fffdf9;--ink:#171713;--muted:#746e63;--line:#ddd5c8;--olive:#75804d;--olive2:#5f6940}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','Noto Sans TC',sans-serif}a{color:inherit;text-decoration:none}img{display:block;width:100%}button{font:inherit;cursor:pointer}.no-scroll{overflow:hidden}
-.header{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 26px;background:rgba(255,253,249,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;backdrop-filter:blur(12px)}
-.menu-btn{justify-self:start;border:0;background:none;font-size:27px}.brand{text-align:center;font-family:'Songti TC','Noto Serif TC',serif;font-size:26px;letter-spacing:.18em}.brand small{display:block;font-family:Arial,sans-serif;font-size:8px;letter-spacing:.38em;margin-top:5px}.cart-btn{justify-self:end;border:0;background:none;font-size:15px}
+.header{height:72px;isolation:isolate;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 26px;background:rgba(255,253,249,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;backdrop-filter:blur(12px)}
+.menu-btn{justify-self:start;border:0;background:none;font-size:27px}.brand{text-align:center;font-family:'Songti TC','Noto Serif TC',serif;font-size:26px;letter-spacing:.18em}.brand small{display:block;font-family:Arial,sans-serif;font-size:8px;letter-spacing:.38em;margin-top:5px}.cart-btn{justify-self:end;border:0;background:none;font-size:15px;position:relative;z-index:35;cursor:pointer;pointer-events:auto}
 .desktop-nav{position:absolute;left:50%;transform:translateX(-50%);top:72px;display:none;background:#fffdf9;border:1px solid var(--line);border-radius:0 0 12px 12px;padding:12px 22px;gap:22px;z-index:29}.desktop-nav.open{display:flex}
 .hero{padding:18px}.hero-box{position:relative;min-height:520px;border-radius:22px;overflow:hidden;background:#e9e0d5}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,253,249,.94) 0%,rgba(255,253,249,.82) 43%,rgba(255,253,249,.05) 75%)}
 .hero-copy{position:relative;z-index:2;padding:90px 6vw;width:min(62%,760px)}.hero-copy .eyebrow{font-family:'Noto Serif TC',serif;font-size:66px;letter-spacing:.08em;margin-bottom:18px}.hero-copy h1{font-family:'Songti TC','Noto Serif TC',serif;font-size:38px;font-weight:500;line-height:1.45;margin:0 0 18px}.hero-copy p{font-size:18px;line-height:1.9;color:#59544c;margin:0 0 28px}.hero-copy a{display:inline-flex;background:var(--olive);color:#fff;border-radius:999px;padding:14px 28px}
@@ -92,17 +92,17 @@
 @media(max-width:800px){.checkout-form{grid-template-columns:1fr}.checkout-form .wide,.checkout-form .section-title,.checkout-submit,.checkout-note{grid-column:1}.shipping-choice{grid-template-columns:1fr}.checkout-drawer{width:100vw}}
 
 .hero-box{min-height:auto;background:transparent;border-radius:24px;overflow:hidden;box-shadow:0 16px 36px rgba(42,34,24,.10)}
-.hero-feature-img{width:100%;height:auto;display:block;margin-top:-7.4%}
+.hero-feature-img{width:100%;height:auto;display:block;margin:0}
 .hero-hotspot{position:absolute;left:6.2%;width:32%;height:5.4%;border-radius:999px;z-index:3}
-.hero-shop-hotspot{top:50.7%;background:transparent}
-.hero-oem-button{top:62.2%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,249,.94);border:1px solid rgba(117,128,77,.75);color:#59633d;font-size:clamp(12px,1.55vw,21px);font-weight:600;letter-spacing:.08em;line-height:1;box-shadow:0 7px 18px rgba(44,38,28,.10)}
+.hero-shop-hotspot{top:50.3%;background:transparent}
+.hero-oem-button{top:58.8%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,249,.94);border:1px solid rgba(117,128,77,.75);color:#59633d;font-size:clamp(12px,1.55vw,21px);font-weight:600;letter-spacing:.08em;line-height:1;box-shadow:0 7px 18px rgba(44,38,28,.10)}
 .hero-oem-button:hover{background:#fff;transform:translateY(-1px)}
 .store-map-actions{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
 .store-map-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--olive);background:#f8f6f0;color:var(--olive2);border-radius:999px;padding:11px 16px;font-size:13px;font-weight:700;line-height:1.2}
 .store-map-btn:hover{background:#fff}
 .store-map-help{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 10px}
 
-@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}.hero-hotspot{left:6.2%;width:34%}.hero-shop-hotspot{top:50.5%}.hero-oem-button{top:62.4%;font-size:11px}}
+@media(max-width:800px){.hero-box{border-radius:20px;box-shadow:none}.hero-hotspot{left:6.2%;width:34%}.hero-shop-hotspot{top:50.2%}.hero-oem-button{top:59.0%;font-size:11px}}
 
 .category-filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
 .category-filter{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 17px;font-size:13px;transition:.2s}
@@ -135,7 +135,7 @@ button:disabled{cursor:not-allowed;opacity:.55}
 .checkout-btn:disabled{background:#aaa49a}
 .stock-badge{display:inline-flex;align-self:flex-start;margin:0 0 10px;padding:5px 10px;border-radius:999px;background:#edf3e8;color:#50613c;font-size:11px;font-weight:700}
 
-</style>  <link rel='preload' as='image' href='assets/hero-option1.png'>
+</style>  <link rel='preload' as='image' href='assets/hero-option1-cropped.png'>
 </head><body>
 <header class='header'>
   <button class='menu-btn' onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
@@ -144,7 +144,7 @@ button:disabled{cursor:not-allowed;opacity:.55}
   <nav class='desktop-nav' id='nav'><a href='#shop'>所有商品</a><a href='oem.html'>代工服務</a><a href='about.html'>關於我們</a><a href='faq.html'>常見問題</a><a href='contact.html'>聯絡我們</a></nav>
 </header>
 <main id='top'>
-<section class='hero'><div class='hero-box'><img class='hero-feature-img' src='assets/hero-option1.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='864' height='1536'><a class='hero-hotspot hero-shop-hotspot' href='#shop' aria-label='立即選購'></a><a class='hero-hotspot hero-oem-button' href='oem.html'>代工服務 OEM／ODM →</a></div></section>
+<section class='hero'><div class='hero-box'><img class='hero-feature-img' src='assets/hero-option1-cropped.png' alt='ETRIA SELECT 把日常，做成值得收藏的質感' fetchpriority='high' decoding='async' width='941' height='1527'><a class='hero-hotspot hero-shop-hotspot' href='#shop' aria-label='立即選購'></a><a class='hero-hotspot hero-oem-button' href='oem.html'>代工服務 OEM／ODM →</a></div></section>
 <section class='feature-strip'><div><strong>植萃日常配方</strong><span>兼顧清潔與使用感受</span></div><div><strong>多元生活清潔</strong><span>洗護、衣物、居家與香氛</span></div><div><strong>實用大容量</strong><span>適合家庭日常使用</span></div><div><strong>台灣研發製造</strong><span>完整製造與品管流程</span></div></section>
 <section class='trust-row' aria-label='品牌信任資訊'>
   <div class='trust-item'><strong>台灣製造</strong><span>桃園自有製造端</span></div>
@@ -287,7 +287,7 @@ button:disabled{cursor:not-allowed;opacity:.55}
 </aside>
 
 <script>
-/* PURE FORM V45: hero crop, empty-cart fix, payment clarity, product filters */
+/* PURE FORM V48: hero crop, empty-cart fix, payment clarity, product filters */
 window.PURE_FORM_ORDER_ENDPOINT='https://formspree.io/f/maqrneoy';
 const products=[{"id":"mugwort","name":"艾草平衡修護洗髮精","en":"Mugwort Balancing Repair Shampoo","spec":"1100mL","price":109,"stock":true,"image":"assets/shampoo-mugwort.webp","scenario":"assets/scenario-mugwort.webp","scenarioCaption":"洗髮後呈現柔順、有光澤的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"草本清新","desc":"清新的艾草草本氣息，為日常洗髮增添乾淨、舒服的洗護感受。","features":["1100mL 家庭實用大容量","清新艾草草本香氣","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"sandalwood","name":"檀香平衡修護洗髮精","en":"Sandalwood Balancing Repair Shampoo","spec":"1100mL","price":109,"stock":true,"image":"assets/shampoo-sandalwood.webp","scenario":"assets/scenario-sandalwood.webp","scenarioCaption":"洗髮後呈現平整、柔亮的髮絲視覺；實際感受依個人髮質與使用方式而異。","tag":"溫潤檀香","desc":"溫潤沉穩的檀香木質調，讓每日洗髮多一點安定、舒適的香氣。","features":["1100mL 家庭實用大容量","溫潤沉穩木質香調","適合日常頭髮清潔使用"],"usage":"取適量於濕髮上，輕柔按摩頭皮與髮絲後，以清水沖洗乾淨；可依個人髮量與清潔需求調整用量。","caution":"僅供外用，請避免接觸眼睛。如不慎入眼，請立即以大量清水沖洗。使用後如有持續不適，請停止使用並諮詢專業人員。請置於陰涼處並避免孩童誤取。"},{"id":"diffuser","name":"北國雪松花露水擴香瓶","en":"Nordic Cedar Diffuser","spec":"500mL","price":99,"stock":true,"image":"assets/diffuser.webp","scenario":"assets/scenario-diffuser.webp","scenarioCaption":"適合放置於客廳、臥室或玄關，營造沉穩木質香氛。","tag":"木質香氛","desc":"以北國雪松為主調的空間香氣，適合放置於玄關、客廳或臥室，營造清新木質氛圍。","features":["500mL 大容量設計","清新沉穩雪松木質調","適合玄關、客廳與臥室"],"usage":"將擴香棒插入瓶中，待香氛液自然吸附並散發。可依空間大小與香氣濃淡需求調整擴香棒數量。","caution":"請勿飲用，並遠離火源、高溫與陽光直射處。避免接觸眼睛、皮膚及家具表面。請放置於孩童與寵物無法取得處，並保持瓶身直立。"},{"id":"floor","name":"北國雪松速乾地板清潔液","en":"Nordic Cedar Quick Dry Floor Cleaner","spec":"1100mL","price":99,"stock":true,"image":"assets/floor.webp","scenario":"assets/scenario-floor.webp","scenarioCaption":"稀釋後搭配拖把使用，完成日常地板清潔。","tag":"速乾清潔","desc":"用於日常地板清潔，清潔後留下淡雅北國雪松香氣，讓居家整理更俐落。","features":["1100mL 家庭實用容量","適合日常地板清潔","淡雅北國雪松木質香氣"],"usage":"依地板髒污程度取適量加入清水中稀釋後拖拭。首次使用前，建議先於不明顯處小範圍測試。","caution":"請勿飲用，避免接觸眼睛與皮膚。不同地板材質的耐受性不同，請依材質說明使用，勿與其他清潔劑混合。請置於孩童與寵物無法取得處。"},{"id":"pods","name":"兔兔香氛洗衣凝珠","en":"Rabbit Laundry Perfume Pods","spec":"30顆","price":109,"stock":true,"image":"assets/pods.webp","scenario":"assets/scenario-pods.webp","scenarioCaption":"將凝珠直接放入洗衣槽，再放入衣物開始洗程。","tag":"衣物香氛","desc":"一顆一洗的定量設計，減少倒取步驟，讓日常洗衣更方便並留下柔和香氣。","features":["每盒 30 顆","單顆定量，使用方便","適合日常衣物清潔"],"usage":"將一顆凝珠直接放入洗衣槽內，再放入衣物並依洗衣機正常程序清洗。請勿放入洗劑盒中，實際用量可依衣物量與髒污程度調整。","caution":"請勿撕開、剪開或以濕手拿取凝珠。請勿食用，並務必放置於孩童與寵物無法取得處。如不慎接觸眼睛或誤食，請立即以大量清水沖洗並儘速就醫。"},{"id":"golden-tiger","name":"金虎爺招財金尊","en":"Golden Tiger Wealth Figurine","spec":"約 9 × 10.5 × 7 cm","price":239,"stock":true,"image":"assets/golden-tiger.webp","scenario":"assets/golden-tiger-detail.webp","scenarioCaption":"適合擺放於居家、店面櫃台或辦公桌面，作為具有吉祥寓意的空間擺飾。","tag":"招財擺飾","desc":"金虎爺象徵招財納福與守護平安。造型威風中帶有可愛感，尺寸小巧，適合居家、店面與辦公空間擺設，也適合作為開運送禮。","features":["臺灣興義堂南桃園金虎爺會","PVC 材質，造型鮮明吸睛","適合居家、店面、辦公桌與送禮"],"usage":"可放置於居家玄關、客廳、辦公桌面或店面櫃台。請置於平穩乾燥處，並依空間風格自由搭配擺設。","caution":"本品為裝飾擺件，非兒童玩具。請避免摔落、碰撞、高溫與長時間陽光直射；表面如有灰塵，請以柔軟乾布輕拭。"}];
 const map=Object.fromEntries(products.map(p=>[p.id,p]));
@@ -421,7 +421,7 @@ async function submitOrder(e){
   payload.append('訂單總計（新台幣）',`${amount.total} 元`);
   payload.append('備註',order.customer.note||'無');
   payload.append('已同意購物與隱私政策','是');
-  payload.append('網站版本','V45');
+  payload.append('網站版本','V48');
   payload.append('下單頁面',location.href);
   payload.append('完整訂單',summary);
   try{

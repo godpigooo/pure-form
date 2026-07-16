@@ -77,15 +77,15 @@
       padding:0;
       background:linear-gradient(180deg,#f7f4ee 0%, #f3eee6 100%);
     }
-    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; min-height:280px}
-    .hero-copy{padding:28px 20px 24px}
+    .hero-grid{display:grid; grid-template-columns:1fr; min-height:auto}
+    .hero-copy{padding:28px 24px 20px}
     .eyebrow{font-family:"Noto Serif TC",serif; font-size:14px; letter-spacing:.18em; color:var(--gold-deep); margin-bottom:14px}
-    .hero h1{font-family:"Noto Serif TC",serif; font-size:28px; line-height:1.35; margin:0 0 16px; font-weight:600; letter-spacing:.04em}
-    .hero p{margin:0; color:var(--muted); font-size:14px; line-height:1.95}
+    .hero h1{font-family:"Noto Serif TC",serif;font-size:28px;line-height:1.42;margin:0 0 16px;font-weight:600;letter-spacing:.02em;word-break:keep-all}
+    .hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.9}.hero-line{display:block;white-space:nowrap}
 
     .hero-art{
       position:relative;
-      min-height:280px;
+      min-height:210px;
       background:
         radial-gradient(circle at 50% 90%, rgba(0,0,0,.08), transparent 44%),
         linear-gradient(145deg,#f4f1eb 0%,#ede7dc 100%);
@@ -238,6 +238,9 @@
     }
 
     @media (min-width: 900px){
+      .hero-grid{grid-template-columns:1.08fr .92fr;min-height:410px}
+      .hero-copy{padding:52px 48px 46px}
+      .hero-art{min-height:410px}
       .shell{max-width:1180px; padding:0 24px 48px}
       .hero-grid{grid-template-columns:1.08fr .92fr; min-height:410px}
       .hero-copy{padding:52px 48px 46px}
@@ -308,7 +311,7 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">OEM / ODM / OBM</div>
-          <h1>從配方到量產，<br>協助品牌誕生。</h1>
+          <h1><span class="hero-line">從配方到量產，</span><span class="hero-line">協助品牌誕生。</span></h1>
           <p>淨序製研提供專業的一站式代工服務，結合研發實力與美學思維，從產品開發、包裝設計到量產交付，陪伴品牌實現理想商品。</p>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -395,7 +398,7 @@
       </div>
     </section>
 
-    <div class="footer">淨序製研 PURE FORM<br>OEM / ODM / OBM 代工服務頁面更新版</div>
+    <div class="footer">淨序製研 PURE FORM<br>OEM / ODM / OBM 代工服務</div>
   </main>
 
   <script>
